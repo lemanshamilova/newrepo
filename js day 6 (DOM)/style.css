@@ -1,0 +1,30 @@
+.box {
+  border: 1px solid blue;
+  padding: 20px;
+  width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.box2 {
+  border: 1px solid gray;
+  padding: 20px;
+  height: 150px;
+  width: 600px;
+}
+
+.firstBox {
+  display: none;
+}
+
+.secondBox {
+  display: none;
+}
+.thirdBox {
+  display: none;
+}
+
+.click {
+  transform: rotate(180deg);
+  transform-origin: left top;
+}
