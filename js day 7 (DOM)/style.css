@@ -1,0 +1,30 @@
+.total {
+  display: flex;
+  justify-content: center;
+  
+  
+ .box {
+  
+    width: 900px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+   
+   background-color: rgb(244, 135, 27);
+   
+   .newDiv{
+    
+   text-align: center;
+   background-color: white;
+ 
+  
+    .prdTitle{
+        font-size: 20px;
+    }
+    .img{
+        padding: 30px;
+    }
+   }
+  
+  }
+}
