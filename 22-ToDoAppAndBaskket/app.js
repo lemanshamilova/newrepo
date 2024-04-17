@@ -267,100 +267,111 @@ const api = [
   },
 ];
 
-let homePage = document.querySelector(".home");
-let basketPage = document.querySelector(".basket");
-let wishlistPage = document.querySelector(".wishlist");
+let homePage = document.querySelector(".Home");
+let basketPage = document.querySelector(".Basket");
+let wishlistPage = document.querySelector(".Wishlist");
 
-api.forEach((elem) => {
-  let newDiv = document.createElement("div");
-  newDiv.className = "newDiv";
-  newDiv.style.width = "300px";
-  newDiv.style.height = "400px";
-  let prdTitle = document.createElement("p");
-  prdTitle.className = "prdTitle";
-  prdTitle.innerText = elem.title;
-  let img = document.createElement("img");
+const basket = [];
 
-  img.src = elem.image;
-  img.className = "img";
-  img.style.width = "100px";
-  img.style.height = "100px";
-  let btn1 = document.createElement("button");
-  let btn2 = document.createElement("button");
-  btn2.innerText = "wishlist";
+const fav = [];
 
-  btn1.innerText = "basket";
-
-  btn2.style.margin = "10px";
-  btn1.style.padding = "10px";
-  btn2.style.padding = "10px";
-  btn1.style.backgroundColor = "DodgerBlue";
-  btn2.style.backgroundColor = "MediumSeaGreen";
-
-  btn1.style.border = "none";
-  btn2.style.border = "none";
-  btn1.style.borderRadius = "5px";
-  btn2.style.borderRadius = "5px";
-  btn1.style.color = "white";
-  btn2.style.color = "white";
-
- 
-
-  newDiv.append(img);
-  newDiv.append(prdTitle);
-  homePage.append(newDiv);
-  newDiv.append(btn1);
-  newDiv.append(btn2);
+api.forEach((element) => {
+  createCard(element, homePage);
 });
 
-api.forEach((elem) => {
-  let newDiv = document.createElement("div");
-  newDiv.className = "newDiv";
-  newDiv.style.width = "300px";
-  newDiv.style.height = "400px";
+function createCard(element, page) {
+  let card = document.createElement("div");
+  card.className = "card";
+
   let prdTitle = document.createElement("p");
   prdTitle.className = "prdTitle";
-  prdTitle.innerText = elem.title;
-  let img = document.createElement("img");
+  prdTitle.innerText = element.title;
 
-  img.src = elem.image;
-  img.className = "img";
-  img.style.width = "100px";
-  img.style.height = "100px";
-  let btn1 = document.createElement("button");
-  let btn2 = document.createElement("button");
-  btn2.innerText = "wishlist";
+  let image = document.createElement("img");
+  image.className = "img";
+  image.src = element.image;
+  image.style.width = "150px";
+  image.style.height = "150px";
 
-  btn1.innerText = "basket";
+  let price = document.createElement("p");
+  price.className = "price";
+  price.innerText = element.price;
 
-  btn2.style.margin = "10px";
-  btn1.style.padding = "10px";
-  btn2.style.padding = "10px";
-  btn1.style.backgroundColor = "DodgerBlue";
-  btn2.style.backgroundColor = "MediumSeaGreen";
+  let basketBtn = document.createElement("button");
+  let removeBtn = document.createElement("button");
+  removeBtn.className = "removeBtn";
+  basketBtn.className = "basketBtn";
+  basketBtn.innerText = "Basket";
+  removeBtn.innerText = "Remove";
 
-  btn1.style.border = "none";
-  btn2.style.border = "none";
-  btn1.style.borderRadius = "5px";
-  btn2.style.borderRadius = "5px";
-  btn1.style.color = "white";
-  btn2.style.color = "white";
+  removeBtn.addEventListener("click", function () {
+    this.parentElement.remove();
+  });
 
+  basketBtn.setAttribute("data", element.id);
 
-  btn1.setAttribute("data",elem.id)
+  basketBtn.addEventListener("click", function (e) {
+    let element = api.find(
+      (element) => element.id == e.target.getAttribute("data")
+    );
+    // createCard(element, basket  Page);
+    // console.log(element);
+    element.count = 1;
+    basket.push(element);
+    // console.log(basket)
+    basketPage.innerHTML = "";
+    wishlistPage.innerHTML = "";
+    basket.forEach((element) => {
+      let prdTitle = document.createElement("p");
+      prdTitle.innerText = element.title;
+      prdTitle.style.fontSize = "40px";
 
-  btn1.addEventListener("click",(e)=>{
-    let elem = api.find((elem)=> elem.id == e.target.getAttribute("data"));
-    createCard(elem,basketPage);
+      let prdId = document.createElement("p");
+      prdId.innerText = element.id;
+      prdId.style.fontSize = "40px";
 
-  })
+      let newBtn = document.createElement("button");
+      newBtn.innerText = "-";
+      newBtn.style.border = "2px solid";
+      newBtn.style.padding = "30px";
+      newBtn.style.fontSize = "60px";
 
- 
+      let newBtn2 = document.createElement("button");
+      newBtn2.innerText = "+";
+      newBtn2.style.border = "2px solid";
+      newBtn2.style.padding = "30px";
+      newBtn2.style.fontSize = "60px";
 
-  newDiv.append(img);
-  newDiv.append(prdTitle);
-  // basketPage.append(newDiv);
-  basketPage.append(createCard)
-  newDiv.append(btn1);
-  newDiv.append(btn2);
-});
+      let newBtn3 = document.createElement("button");
+      newBtn3.innerText = element.count;
+      newBtn3.style.border = "2px solid";
+      newBtn3.style.padding = "30px";
+      newBtn3.style.fontSize = "60px";
+
+      newBtn2.addEventListener("click", () => {
+        newBtn3.innerText = +newBtn3.innerText + 1;
+      });
+
+      newBtn.addEventListener("click", () => {
+        newBtn3.innerText = +newBtn3.innerText - 1;
+      });
+
+      basketPage.append(prdTitle);
+      wishlistPage.append(prdTitle);
+      wishlistPage.append(prdId);
+      wishlistPage.append(newBtn);
+
+      wishlistPage.append(newBtn3);
+      wishlistPage.append(newBtn2);
+    });
+  });
+
+  card.append(image);
+  card.append(prdTitle);
+  homePage.append(card);
+  card.append(price);
+  card.append(basketBtn);
+  card.append(removeBtn);
+
+  page.append(card);
+}
