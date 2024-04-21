@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(231, 85, 22);
+}
+
+.container {
+    width: 1500px;
+    margin: auto;
+
+}
+
+.card {
+    width: 100%;
+
+
+}
+
+.HomeList {
+    background-color: rgb(231, 85, 22);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+
+    .cards {
+        height: 350px;
+        width: 300px;
+
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 3px 3px 10px;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .img {
+            margin: auto;
+        }
+
+        p {
+            font-size: 15px;
+            text-align: left;
+            margin-top: 30px;
+            color: rgb(86, 79, 79);
+
+
+        }
+
+        .price {
+            color: rgb(231, 85, 22);
+            font-size: 20px;
+
+            width: fit-content;
+        }
+
+        .title {
+
+            padding: 5px;
+        }
+
+        .basketBtn {
+            background-color: rgb(231, 85, 22);
+            width: max-content;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 1px 1px 10px;
+            position: relative;
+            left: 140px;
+            bottom: 30px;
+            color: white;
+
+        }
+
+    }
+
+}
+
+
+.basketPage {
+
+    margin: 100px;
+
+    h1 {
+        padding: 20px;
+        color: white;
+        text-align: center;
+    }
+
+}
+
+.BasketList {
+
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .cards {
+        display: flex;
+        align-items: center;
+
+        width: 900px;
+        height: 300px;
+
+
+
+
+
+
+
+    }
+}
+
+.WishList {
+    h1 {
+        color: white;
+        text-align: center;
+
+    }
+}
+
+.total {
+
+    h1 {
+        color: white;
+        text-align: center;
+        padding: 20px;
+
+    }
+}
