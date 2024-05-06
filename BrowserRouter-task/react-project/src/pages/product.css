@@ -1,0 +1,17 @@
+.btn{
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 7px;
+   
+}
+.red{
+    background-color: red;
+}
+.yellow{
+    background-color: yellow;
+}
+.Inp{
+    padding: 7px;
+    border-radius: 5px;
+
+}

@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.active{
+    color: red;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background-image: linear-gradient(to right top, #e0dcdf, #e3dfe3, #e5e2e7, #e6e5ec, #e7e8f0, #e7e9f0, #e6e9f1, #e6eaf1, #e4e8ed, #e3e6e9, #e1e3e6, #e0e1e2);
+    box-shadow: 1px 1px 10px;
+    
+   
+    ul{
+        display: flex;
+        list-style: none;
+        gap: 20px;
+        li{
+            font-size: 22px;
+            font-weight: 600;
+            a{
+                text-decoration: none;
+            }
+        }
+    }
+}
