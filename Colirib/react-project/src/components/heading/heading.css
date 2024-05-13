@@ -1,0 +1,16 @@
+.heading{
+   
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+}
+.left-side{
+    display: flex;
+    gap: 15px;
+}
+.header{
+    width: 100%;
+    background-color: #f8f9fa ;
+}
